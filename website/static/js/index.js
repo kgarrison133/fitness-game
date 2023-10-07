@@ -5,29 +5,51 @@ const CANVAS_WIDTH = (myCanvas.width = 100);
 const CANVAS_HEIGHT = (myCanvas.height = 100);
 
 const myImg = document.getElementById("myImg");
-const spriteWidth = 88;
-const spriteHeight = 88;
+const spriteWidth = 86;
+const spriteHeight = 86;
 let gameFrame = 0;
+// to slow down the animation
 let stagger = 0;
 const staggerFrame = 10;
 
+function animateLoop() {
+  if (stagger % staggerFrame == 0) {
+    // clear image every single frame
+    c.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    c.drawImage(
+      myImg,
+      spriteWidth * (gameFrame % 5),
+      0,
+      spriteWidth,
+      spriteHeight,
+      0,
+      0,
+      CANVAS_WIDTH,
+      CANVAS_HEIGHT
+    );
+    gameFrame++;
+    stagger = 0;
+  }
+  stagger++;
+
+  // loops
+  requestAnimationFrame(animateLoop);
+}
+
+// animateLoop();
+
+// numFrames, img
 function animate() {
-  console.log("Stagger: " + stagger);
-
   if (stagger == staggerFrame) {
-    console.log("StaggerFrame: " + staggerFrame);
-
-    if (gameFrame < 6) {
-      // c.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-
-      //   change game frame automatically
-      let frameX = spriteWidth * gameFrame;
-      let frameY = spriteHeight * gameFrame;
-
+    if (gameFrame >= 5) {
+      return;
+    } else {
+      // clear image every single frame
+      c.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
       c.drawImage(
         myImg,
-        frameX,
-        frameY,
+        spriteWidth * gameFrame,
+        0,
         spriteWidth,
         spriteHeight,
         0,
@@ -36,14 +58,12 @@ function animate() {
         CANVAS_HEIGHT
       );
       gameFrame++;
-    } else {
-      gameFrame = 0;
     }
     stagger = 0;
   }
   stagger++;
 
+  // loops
   requestAnimationFrame(animate);
 }
-
 animate();
