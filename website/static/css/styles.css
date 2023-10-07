@@ -1,5 +1,54 @@
 * {
-    padding: 0;
-    margin: 0;
-    background-color: blue;
+  padding: 0;
+  margin: 0;
+  font-family: "Pixelify Sans", cursive;
+}
+
+:root {
+  --primary: #615985;
+  --secondary: #68a3a2;
+  --text: #232023;
+  --pix-border: #41424c;
+}
+
+body {
+  line-height: 1.5;
+  background-color: var(--primary);
+  color: var(--text);
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 5rem;
+}
+
+.container {
+  padding: 10% 20%;
+}
+
+/* Button Styling */
+button {
+  margin: 2rem;
+  padding: 0.8rem;
+  border: solid 5px var(--pix-border);
+  background-color: #e89a82;
+  color: var(--pix-border);
+}
+/* End Button Styling */
+
+/* Scenario Screen */
+.scenario {
+  padding: 0 5%;
+  text-align: center;
+}
+/* End Scenario Screen */
+
+#myCanvas {
+  border: 5px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100;
+  height: 100;
 }
