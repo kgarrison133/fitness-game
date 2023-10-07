@@ -23,7 +23,14 @@ h1 {
 }
 
 .container {
-  padding: 10% 20%;
+  padding: 10% 20% 0 20%;
+}
+
+.row {
+  display: flex;
+}
+.col {
+  width: 100%;
 }
 
 /* Button Styling */
@@ -42,6 +49,32 @@ button {
   text-align: center;
 }
 /* End Scenario Screen */
+
+/* Battle Screen */
+.container.battle {
+  background: url("../assets/bg-img/bg-1.png") no-repeat center center fixed;
+  /* -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover; */
+  height: 100vh;
+  background-size: cover;
+}
+
+.hp-bars .hp-bar {
+  text-align: center;
+  border: solid 5px var(--pix-border);
+  background-color: red;
+}
+
+.char-name {
+  color: white;
+}
+
+.enemy {
+  text-align: right;
+}
+
+/* End Battle Screen */
 
 #myCanvas {
   border: 5px solid black;
