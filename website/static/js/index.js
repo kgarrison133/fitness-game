@@ -12,9 +12,13 @@ let stagger = 0;
 const staggerFrame = 10;
 
 function animate() {
+  console.log("Stagger: " + stagger);
+
   if (stagger == staggerFrame) {
+    console.log("StaggerFrame: " + staggerFrame);
+
     if (gameFrame < 6) {
-      c.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      // c.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
       //   change game frame automatically
       let frameX = spriteWidth * gameFrame;
