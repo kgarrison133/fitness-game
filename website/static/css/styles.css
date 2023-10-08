@@ -76,6 +76,24 @@ button {
 
 /* End Battle Screen */
 
+/* Run Screen */
+.sub-scenario {
+  width: 60%;
+  margin: auto;
+  margin-top: 10%;
+  text-align: center;
+}
+
+.running {
+  color: white;
+}
+
+.step-count {
+  margin-top: 15%;
+  padding-left: 10%;
+}
+/* End Run Screen */
+
 /* Character Animation */
 #p-battleCanvas {
   position: absolute;
@@ -88,7 +106,7 @@ button {
 
 #runCanvas {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100px;
