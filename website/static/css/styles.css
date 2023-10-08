@@ -63,7 +63,39 @@ button {
 .hp-bars .hp-bar {
   text-align: center;
   border: solid 5px var(--pix-border);
-  background-color: red;
+  background-color: var(--pix-border);
+}
+
+#player-hp {
+  background-color: green;
+}
+
+#enemy-hp {
+  animation-name: hp-down;
+  animation-duration: 1s;
+  animation-delay: 0.8s;
+  background-color: green;
+}
+
+@keyframes hp-down {
+  0% {
+    background-color: green;
+  }
+
+  30% {
+    background-color: yellow;
+    width: 70%;
+  }
+
+  70% {
+    background-color: red;
+    width: 30%;
+  }
+
+  100% {
+    background-color: var(--pix-border);
+    width: 0;
+  }
 }
 
 .char-name {
@@ -95,7 +127,16 @@ button {
 /* End Run Screen */
 
 /* Character Animation */
-#p-battleCanvas {
+/* #p-battleCanvas {
+  position: absolute;
+  top: 60%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+}
+
+#e-battleCanvas {
   position: absolute;
   top: 60%;
   left: 45%;
@@ -111,5 +152,71 @@ button {
   transform: translate(-50%, -50%);
   width: 100px;
   height: 100px;
+} */
+
+.player-attack {
+  position: absolute;
+  top: 60%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  width: 86px;
+  height: 86px;
+
+  background: url(../assets/characters/knight/Attack\ 1.png);
+  animation: player-attack 0.5s steps(5);
+  animation-delay: 0.5s;
+}
+
+@keyframes player-attack {
+  from {
+    background-position: 0;
+  }
+
+  to {
+    background-position: 450px;
+  }
+}
+
+.enemy-attack {
+  position: absolute;
+  top: 57%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 128px;
+  height: 128px;
+  background: url(../assets/characters/Ghost/Dead.png);
+  animation: enemy-attack 0.7s steps(5);
+  animation-delay: 0.8s;
+}
+
+@keyframes enemy-attack {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -512px;
+  }
+}
+
+.player-run {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 86px;
+  height: 86px;
+  background: url(../assets/characters/knight/Run.png);
+  animation: player-run 0.7s steps(7) infinite;
+}
+
+@keyframes player-run {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: -487px;
+  }
 }
 /* End Character Animation */

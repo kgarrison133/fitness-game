@@ -11,8 +11,8 @@ function createAnimation(
 
   console.log(c);
 
-  const CANVAS_WIDTH = (myCanvas.width = 100);
-  const CANVAS_HEIGHT = (myCanvas.height = 100);
+  const CANVAS_WIDTH = (myCanvas.width = spriteHeight + 20);
+  const CANVAS_HEIGHT = (myCanvas.height = spriteHeight + 20);
 
   const myImg = document.getElementById(imgId);
   const spriteWidth = imgWidth / numFrames;
@@ -88,4 +88,53 @@ function createAnimation(
 
 // player battle animation
 // createAnimation("p-battleCanvas", "p-battleImg", 5, 0, 430, 86);
-createAnimation("runCanvas", "runImg", 7, 0, 500, 86);
+// createAnimation("e-battleCanvas", "e-battleImg", 5, 0, 640, 128);
+// createAnimation("runCanvas", "runImg", 7, 0, 500, 86);
+
+const player = {
+  canvas: "p-battleCanvas",
+  img: "p-battleImg",
+  frames: 5,
+  loops: 0,
+  width: 430,
+  height: 86,
+};
+
+const enemy = {
+  canvas: "e-battleCanvas",
+  img: "e-battleImg",
+  frames: 5,
+  loops: 0,
+  width: 640,
+  height: 128,
+};
+
+battleChar = [player, enemy];
+i = 0;
+let el = document.getElementById("#battle-fight");
+let battleContent;
+
+function battleAnimation() {
+  i == 0 ? (i = 1) : (i = 0);
+  let character = battleChar[i];
+  if ((i = 1)) {
+    battleContent =
+      '<img src="../static/assets/characters/Ghost/Dead.png" id="e-battleImg" /></canvas>';
+  } else {
+    battleContent =
+      '<canvas id="p-battleCanvas"><img src="../static/assets/characters/knight/Attack 1.png" id="p-battleImg"/>canvas>';
+  }
+
+  createAnimation(
+    character.canvas,
+    character.img,
+    character.frames,
+    character.loops,
+    character.width,
+    character.height
+  );
+  el.insertAdjacentHTML("afterbegin", battleContent);
+  setTimeout(battleAnimation, 5000);
+}
+
+battleAnimation();

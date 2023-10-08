@@ -23,27 +23,25 @@
         <div class="hp-bars row">
           <div class="col">
             <h5 class="char-name">CHISA</h5>
-            <div class="hp-bar">2500/5000</div>
+            <div class="hp-bar" id="player-hp">2500/5000</div>
           </div>
 
           <div class="col">
             <h5 class="char-name enemy">WITCH</h5>
-            <div class="hp-bar">1000/5000</div>
+            <div class="hp-bar" id="enemy-hp">1000/5000</div>
           </div>
         </div>
         <!-- End Battle HTML -->
       </div>
     </main>
 
-    <canvas id="p-battleCanvas">
-      <img
-        src="../static/assets/characters/knight/Attack 1.png"
-        id="p-battleImg"
-      />
-    </canvas>
+    <div class="battle-fight">
+      <div class="player-attack"></div>
+      <div class="enemy-attack"></div>
+    </div>
 
     <!-- JS -->
-    <script src="../static/js/animation.js"></script>
+    <!-- <script src="../static/js/animation.js"></script> -->
     <!-- End JS -->
   </body>
 </html>
